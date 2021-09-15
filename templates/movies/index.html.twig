@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MoviesController!{% endblock %}
+
+{% block body %}
+    {{  render(controller('App\\Controller\\MoviesController::popular'))  }}
+
+    <div class="row">
+        {{  render(controller('App\\Controller\\MoviesController::genre'))  }}
+        <div class="col-md-8">
+
+            <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+                {% for movie in movies %}
+                    {% for item in movie %}
+                        <div class="media text-muted pt-3 ">
+
+                            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32"
+                                 class="mr-2 rounded" style="width: 32px; height: 32px;"
+                                 src="{{ item.poster_path | image_render }}"
+                                 data-holder-rendered="true">
+                            <p class="media-body pb-3 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark">{{ item.title }} </strong>
+                                {{ item.overview}}
+                            </p>
+
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom border-gray">
+                            <small class="text-muted"></small>
+                            <div class="btn-group" style="margin-bottom: 10px;">
+                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-source="{{ item.id }}" id="modal">lire les details</button>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                </small>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

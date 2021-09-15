@@ -1,0 +1,39 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~font-awesome/scss/font-awesome";
+
+body {
+    background-color: lightgray;
+}
+
+
+.input-group.md-form.form-sm.form-1 {
+    input {
+        border: 1px solid #bdbdbd;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+    }
+}
+.input-group.md-form.form-sm.form-2 {
+    input {
+        border: 1px solid #bdbdbd;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }
+    input.red-border {
+        border: 1px solid #ef9a9a;
+    }
+    input.lime-border {
+        border: 1px solid #cddc39;
+    }
+    input.amber-border {
+        border: 1px solid #ffca28;
+    }
+}
+
+.superposed {
+    position: relative;
+    z-index: 100;
+    margin-top: -56px;
+    color: #efe6e6 !important;
+    opacity: 7;
+}
